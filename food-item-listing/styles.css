@@ -225,11 +225,8 @@ footer .company-name {
   }
 } */
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   html {
-    font-size: 46.5%;
-  }
-  .container {
-    width: 40rem;
+    /* font-size: 46.5%; */
   }
 }

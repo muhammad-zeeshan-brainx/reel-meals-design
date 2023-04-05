@@ -11,37 +11,45 @@
   </head>
   <body>
     <div class="container">
+      <!-- <div class="bar">
+        <div class="in"></div>
+      </div> -->
       <div class="slider" id="slider">
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-            alt=""
-          />
+        <div class="slide slide-0" data-slideNumber="0">
+          <video muted controls preload="metadata" onended="playNextVideo()">
+            <source
+              src="https://zeesa1802.s3.ap-northeast-1.amazonaws.com/vid1.mp4?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgLd2oM2NzUqu3HKqNYThb2yhkFPjMTJo3Ot9nnpHNF9UCIALM%2FcGFkLu27LCB3EsVQCmeFZpCU3aBYrAv%2Bphb3u8DKuQCCBoQABoMMTk3Njg0NzEwODY4IgyM1FUdGT6yZk2OUX4qwQLM6iMXr6TxXUwphcQHV06k1tgaN%2Fx2nudii1YLMVYMMsV%2Fo7Jw2JAnMPBpeGJsZ1NtHeUE6rwGZu6M32%2F3%2BzVzl0Cn4HiHdPv9NcYfjmArpe1iJoAfvXXFGQR%2FD0pRGETfIQ7zlptE7X0aM4GPfw29mnYuPtuOg50Qk6LX1roOyCR1Tx4Ft5HI42tC0h2rkzd0xP8wAZ1sqVBsCLgGII6NQic6zG44AOZmu9u1R0Fj09qQC7NM%2Fur0L9OBFL4R2czYh4AAFXcYNA3uDGRS8w8v0K4qRXzJSk0l6K7eteda03T%2FmJ3CIkk%2BVzJGYI3frZ5tfU0ipkKJcBufiqAG0ZPJlDai8DRbXY2YfeoF7QQwJvd7B%2Blkl%2BycW4MTnc3HwF3BzjTojmYkrODmnjvVqrxD2RhuIDywACi7TWyiFALiEWMwvdm2oQY6tAKT%2Bs8vgCnCIrSHWIOQeF3fUfcZL39VbDh8Orso%2FrScxyLaRQ0EhFGaiZAnOGwsODVr4z6Tntf7Vcg4ySb8eSTxVumXsFaOxGibnm0j2pZWbnsqtNPL0HTfvAODk%2F8AcA%2BAIpa3Yp225uA%2FF2Vmr%2FiBJH2IQI2%2Fg6gjnJsSUJVS7un%2FM6GSbnIF7wFRuux9IRc5Pev%2FNfxSO35hiYXCWrLnt2QOTX3kJuoGnbqZ39EGeY2BDPCZ3BM%2Bi6imbPNWuMHHTw5zZnFHDIJg5qJmx54IWlhoy4SOP3LzciJ7pxdnp%2FO37mbLKjlWPMvKxO%2BTwQX2KgN9V0t4zV5YolVHLUTs%2Bqplo2NEMyqtMUA1xMsU%2FZFM62TWZcQAb0jn%2BobQf8N1%2BiLQhDA0LDNhToDtmc2QTypJwg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230405T173359Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIAS4BXNJXKBVKACUON%2F20230405%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=18a4923c4bc8726120bc26e6e8c21a9984c28c0f1dce5c44c45368d7f1ce7527"
+              type="video/mp4"
+            />
+          </video>
         </div>
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
-            alt=""
-          />
+        <div class="slide slide-1" data-slideNumber="1">
+          <video muted controls preload="metadata" onended="playNextVideo()">
+            <source
+              src="https://zeesa1802.s3.ap-northeast-1.amazonaws.com/vid2.mp4?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgLd2oM2NzUqu3HKqNYThb2yhkFPjMTJo3Ot9nnpHNF9UCIALM%2FcGFkLu27LCB3EsVQCmeFZpCU3aBYrAv%2Bphb3u8DKuQCCBoQABoMMTk3Njg0NzEwODY4IgyM1FUdGT6yZk2OUX4qwQLM6iMXr6TxXUwphcQHV06k1tgaN%2Fx2nudii1YLMVYMMsV%2Fo7Jw2JAnMPBpeGJsZ1NtHeUE6rwGZu6M32%2F3%2BzVzl0Cn4HiHdPv9NcYfjmArpe1iJoAfvXXFGQR%2FD0pRGETfIQ7zlptE7X0aM4GPfw29mnYuPtuOg50Qk6LX1roOyCR1Tx4Ft5HI42tC0h2rkzd0xP8wAZ1sqVBsCLgGII6NQic6zG44AOZmu9u1R0Fj09qQC7NM%2Fur0L9OBFL4R2czYh4AAFXcYNA3uDGRS8w8v0K4qRXzJSk0l6K7eteda03T%2FmJ3CIkk%2BVzJGYI3frZ5tfU0ipkKJcBufiqAG0ZPJlDai8DRbXY2YfeoF7QQwJvd7B%2Blkl%2BycW4MTnc3HwF3BzjTojmYkrODmnjvVqrxD2RhuIDywACi7TWyiFALiEWMwvdm2oQY6tAKT%2Bs8vgCnCIrSHWIOQeF3fUfcZL39VbDh8Orso%2FrScxyLaRQ0EhFGaiZAnOGwsODVr4z6Tntf7Vcg4ySb8eSTxVumXsFaOxGibnm0j2pZWbnsqtNPL0HTfvAODk%2F8AcA%2BAIpa3Yp225uA%2FF2Vmr%2FiBJH2IQI2%2Fg6gjnJsSUJVS7un%2FM6GSbnIF7wFRuux9IRc5Pev%2FNfxSO35hiYXCWrLnt2QOTX3kJuoGnbqZ39EGeY2BDPCZ3BM%2Bi6imbPNWuMHHTw5zZnFHDIJg5qJmx54IWlhoy4SOP3LzciJ7pxdnp%2FO37mbLKjlWPMvKxO%2BTwQX2KgN9V0t4zV5YolVHLUTs%2Bqplo2NEMyqtMUA1xMsU%2FZFM62TWZcQAb0jn%2BobQf8N1%2BiLQhDA0LDNhToDtmc2QTypJwg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230405T173708Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIAS4BXNJXKBVKACUON%2F20230405%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=a1032a15921ee2244260b6f64ddf468baab2cf886d6d8f6ab47fea4fcbe41dff"
+              type="video/mp4"
+            />
+          </video>
         </div>
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
-            alt=""
-          />
+        <div class="slide slide-2" data-slideNumber="2">
+          <video muted controls preload="metadata" onended="playNextVideo()">
+            <source
+              src="https://zeesa1802.s3.ap-northeast-1.amazonaws.com/vid3.mp4?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgLd2oM2NzUqu3HKqNYThb2yhkFPjMTJo3Ot9nnpHNF9UCIALM%2FcGFkLu27LCB3EsVQCmeFZpCU3aBYrAv%2Bphb3u8DKuQCCBoQABoMMTk3Njg0NzEwODY4IgyM1FUdGT6yZk2OUX4qwQLM6iMXr6TxXUwphcQHV06k1tgaN%2Fx2nudii1YLMVYMMsV%2Fo7Jw2JAnMPBpeGJsZ1NtHeUE6rwGZu6M32%2F3%2BzVzl0Cn4HiHdPv9NcYfjmArpe1iJoAfvXXFGQR%2FD0pRGETfIQ7zlptE7X0aM4GPfw29mnYuPtuOg50Qk6LX1roOyCR1Tx4Ft5HI42tC0h2rkzd0xP8wAZ1sqVBsCLgGII6NQic6zG44AOZmu9u1R0Fj09qQC7NM%2Fur0L9OBFL4R2czYh4AAFXcYNA3uDGRS8w8v0K4qRXzJSk0l6K7eteda03T%2FmJ3CIkk%2BVzJGYI3frZ5tfU0ipkKJcBufiqAG0ZPJlDai8DRbXY2YfeoF7QQwJvd7B%2Blkl%2BycW4MTnc3HwF3BzjTojmYkrODmnjvVqrxD2RhuIDywACi7TWyiFALiEWMwvdm2oQY6tAKT%2Bs8vgCnCIrSHWIOQeF3fUfcZL39VbDh8Orso%2FrScxyLaRQ0EhFGaiZAnOGwsODVr4z6Tntf7Vcg4ySb8eSTxVumXsFaOxGibnm0j2pZWbnsqtNPL0HTfvAODk%2F8AcA%2BAIpa3Yp225uA%2FF2Vmr%2FiBJH2IQI2%2Fg6gjnJsSUJVS7un%2FM6GSbnIF7wFRuux9IRc5Pev%2FNfxSO35hiYXCWrLnt2QOTX3kJuoGnbqZ39EGeY2BDPCZ3BM%2Bi6imbPNWuMHHTw5zZnFHDIJg5qJmx54IWlhoy4SOP3LzciJ7pxdnp%2FO37mbLKjlWPMvKxO%2BTwQX2KgN9V0t4zV5YolVHLUTs%2Bqplo2NEMyqtMUA1xMsU%2FZFM62TWZcQAb0jn%2BobQf8N1%2BiLQhDA0LDNhToDtmc2QTypJwg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230405T173744Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIAS4BXNJXKBVKACUON%2F20230405%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=0c181352eb1db53f5991ee9dd76822dcd2d73ef57fd4f67a92060b793b5593dd"
+              type="video/mp4"
+            />
+          </video>
         </div>
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1604152135912-04a022e23696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            alt=""
-          />
+        <div class="slide slide-3" data-slideNumber="3">
+          <video muted controls preload="metadata" onended="playNextVideo()">
+            <source src="./Reels/vid4.mp4" type="video/mp4" />
+          </video>
         </div>
-        <div class="slide">
+        <!-- <div class="slide slide-4" data-slideNumber="4">
           <img
             src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=999&q=80
 "
           />
-        </div>
+        </div> -->
         <button class="slider__btn slider__btn--left">&larr;</button>
         <button class="slider__btn slider__btn--right">&rarr;</button>
         <div class="dots"></div>

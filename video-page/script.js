@@ -1,22 +1,52 @@
-function showMore() {
-  var moreText = document.getElementById('more');
-  var showMore = document.querySelector('.show-more');
-  console.log('clicked');
-  console.log(moreText.style.display);
-  console.log(showMore);
-  console.log(moreText?.style?.display === 'none');
-  if (moreText?.style?.display === 'none') {
-    console.log('true');
-    moreText.style.display = 'inline';
-    showMore.innerHTML = 'Show Less';
-  } else if (moreText?.style?.display === 'inline') {
-    moreText.style.display = 'none';
-    showMore.innerHTML = 'Show More';
+let currentVideo;
+let currentSlide;
+let currentVideoDuration;
+const playPauseHandler = () => {
+  console.log('play pause handler executed');
+  console.log(currentVideo, currentSlide);
+  playPause(currentVideo, currentSlide);
+};
+
+// videoSlide.addEventListener('click', playPauseHandler);
+
+const playPause = (video, slideNumber) => {
+  console.log('inside playpause');
+  // console.log('duration', video.duration);
+  const currentDot = document.querySelector(
+    `.dots__dot[data-slide="${slideNumber}"] .in`
+  );
+  // console.log(currentDot);
+  if (video.paused || video.ended) {
+    console.log('if');
+    currentDot.style.animationPlayState = 'running';
+    // video.muted = false;
+    video.play();
   } else {
-    moreText.style.display = 'inline';
-    showMore.innerHTML = 'Show Less';
+    console.log('else');
+    currentDot.style.animationPlayState = 'paused';
+    // video.muted = false;
+    video.pause();
   }
-}
+};
+
+const playVideo = (video, slideNumber) => {
+  console.log('inside play video');
+  console.log('duration', video.duration);
+  const currentDot = document.querySelector(
+    `.dots__dot[data-slide="${slideNumber}"] .in`
+  );
+  currentDot.style.animation = `fill ${
+    currentVideoDuration || video.duration
+  }s linear 1`;
+  video.play();
+};
+
+const stopVideo = (video, slideNumber) => {
+  console.log('inside stop video');
+  console.log('video is', video);
+  video.pause();
+  video.currentTime = 0;
+};
 
 const slider = function () {
   const slides = document.querySelectorAll('.slide');
@@ -32,31 +62,61 @@ const slider = function () {
     slides.forEach(function (_, i) {
       dotContainer.insertAdjacentHTML(
         'beforeend',
-        `<button class="dots__dot" data-slide="${i}"></button>`
+        `<button class="dots__dot" data-slide="${i}"><div class='in'></div></button>`
       );
     });
   };
 
   const activateDot = function (slide) {
-    document
-      .querySelectorAll('.dots__dot')
-      .forEach((dot) => dot.classList.remove('dots__dot--active'));
+    document.querySelectorAll('.dots__dot').forEach((dot) => {
+      dot.classList.remove('dots__dot--active');
+    });
 
-    document
-      .querySelector(`.dots__dot[data-slide="${slide}"]`)
-      .classList.add('dots__dot--active');
+    let el = document.querySelector(`.dots__dot[data-slide="${slide}"]`);
+    el.classList.add('dots__dot--active');
+    let progressBar = el.querySelector('.in');
+    const progressBarClone = progressBar.cloneNode(true);
+    progressBar.remove();
+    console.log('clone is', progressBarClone);
+
+    el.appendChild(progressBarClone);
   };
 
   const goToSlide = function (slide) {
-    slides.forEach(
-      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    console.log('inside goto slide');
+    console.log('go to slide number = ', slide);
+    const videoSlide = document.querySelector(
+      `.slide[data-slideNumber="${slide}"] video`
     );
+
+    videoSlide.addEventListener('timeupdate', () => {
+      console.log('======time update====');
+      if (!currentVideoDuration) {
+        currentVideoDuration = videoSlide.duration;
+      }
+    });
+
+    currentSlide = slide;
+    currentVideo = videoSlide;
+    videoSlide.controls = false;
+    playVideo(videoSlide, slide);
+    console.log('videoSlide', videoSlide);
+    if (slide > 0) {
+      const previousSlide = document.querySelector(
+        `.slide[data-slideNumber="${slide - 1}"] video`
+      );
+      stopVideo(previousSlide, slide - 1);
+    }
+    slides.forEach((s, i) => {
+      s.style.transform = `translateX(${100 * (i - slide)}%)`;
+      s.addEventListener('click', playPauseHandler);
+    });
   };
 
   // Next slide
   const nextSlide = function () {
-    clearInterval(myTimer);
-    myTimer = setInterval(autoNext, 3000);
+    // clearInterval(myTimer);
+    // myTimer = setInterval(autoNext, 3000);
     if (curSlide === maxSlide - 1) {
       curSlide = 0;
     } else {
@@ -78,8 +138,8 @@ const slider = function () {
   };
 
   const init = function () {
-    goToSlide(0);
     createDots();
+    goToSlide(0);
 
     activateDot(0);
   };
@@ -124,9 +184,6 @@ function autoNext() {
   const btnRight = document.querySelector('.slider__btn--right');
   btnRight.click();
 }
-
-let myTimer = setInterval(autoNext, 3000);
-// myTimer();
 
 function registerSwipeEvents(container) {
   container.addEventListener('touchstart', handleTouchStart, false);
@@ -204,3 +261,17 @@ function registerSwipeEvents(container) {
     yDown = null;
   }
 }
+
+function playNextVideo() {
+  console.log('play the next one');
+  const btnRight = document.querySelector('.slider__btn--right');
+  btnRight.click();
+}
+
+const progressLoop = () => {
+  const progress = document.getElementById('progress');
+  const video = document.querySelector('.slide-0 video');
+  setInterval(function () {
+    progress.value = Math.round((video.currentTime / video.duration) * 100);
+  });
+};

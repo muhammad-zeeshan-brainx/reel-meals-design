@@ -48,7 +48,11 @@ svg {
 .header {
   position: relative;
 }
-
+video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 .header-controls {
   display: flex;
   justify-content: space-between;
@@ -159,12 +163,33 @@ svg {
   margin: 0;
 }
 
+.play-video {
+  padding: 2rem;
+  position: absolute;
+
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+}
+
 .dots__dot--active {
   /* background-color: #fff; */
-  width: 4rem;
+  border: none;
+  width: 5rem;
+  /* background-color: #f0e5ea; */
+  filter: drop-shadow(0px 1px 1px #00000039);
+
+  border-radius: 1rem;
+  opacity: 0.7;
+  padding: 0;
+}
+.dots__dot--active .in {
+  animation: fill 20s linear 1;
+  height: 100%;
   background-color: #f50a7c;
-  border-radius: 10rem;
-  opacity: 1;
+  border-radius: 1rem;
+  animation-play-state: paused;
 }
 
 /* -----------------Slider End */
@@ -403,6 +428,38 @@ footer .company-name {
   color: #f50a7c;
 }
 
+#progress {
+  position: absolute;
+}
+/* Fallback stuff */
+progress[value] {
+  appearance: none;
+  border: none;
+
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+  color: rgb(227, 29, 128);
+  display: inline;
+  height: 5px;
+  order: 1;
+  position: relative;
+  width: 5%;
+}
+
+/* WebKit styles */
+progress[value]::-webkit-progress-bar {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: rgb(227, 29, 128);
+  border-radius: 3px;
+  position: relative;
+  transition: width 1s linear;
+}
+
 /* .home-btn {
   width: 34px;
   height: 34px;
@@ -438,6 +495,23 @@ footer .company-name {
   border-radius: 0.5rem;
 }
 
+
+
+.dot {
+  height: 10px;
+  width: 14px;
+  background-color: #bbb;
+  border-radius: 30%;
+  display: inline-block;
+}
+
+.current-dot {
+  height: 10px;
+  width: 40px;
+  display: inline-block;
+  padding: 2px;
+} */
+
 .bar {
   height: 10px;
   width: 100%;
@@ -457,18 +531,3 @@ footer .company-name {
     width: 100%;
   }
 }
-
-.dot {
-  height: 10px;
-  width: 14px;
-  background-color: #bbb;
-  border-radius: 30%;
-  display: inline-block;
-}
-
-.current-dot {
-  height: 10px;
-  width: 40px;
-  display: inline-block;
-  padding: 2px;
-} */

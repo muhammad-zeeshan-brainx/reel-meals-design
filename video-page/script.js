@@ -89,6 +89,9 @@ const slider = function () {
       `.slide[data-slideNumber="${slide}"] video`
     );
 
+    videoSlide.addEventListener('pause', () => {
+      playPause(videoSlide, slide);
+    });
     videoSlide.addEventListener('timeupdate', () => {
       console.log('======time update====');
       if (!currentVideoDuration) {

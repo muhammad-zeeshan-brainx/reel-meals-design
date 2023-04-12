@@ -160,13 +160,13 @@ main:hover {
 }
 
 .menu {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #212121;
   font-weight: 500;
   margin-top: 2rem;
 }
 .menu-grid {
-  margin-top: 2rem;
+  /* margin-top: 1rem; */
   display: grid;
   grid-auto-rows: 20rem;
   gap: 3rem;
@@ -222,6 +222,48 @@ footer .powered-by {
 footer .company-name {
   color: #f50a7c;
 }
+
+.tinder-slider {
+  margin-top: 2.5rem;
+  width: 100%;
+  height: 55vh;
+  /* background-color: pink; */
+  position: relative;
+  border-radius: 2rem;
+}
+
+.tinder-images {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 5px;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.top-image-0 {
+  top: 47.5%;
+  /* transform: translate(-50%, -52%) rotate(0deg) scale(0.95); */
+}
+
+.top-image-1 {
+  top: 52.5%;
+  /* transform: translate(-50%, -52%) rotate(0deg) scale(0.95); */
+}
+/* .tinder-overlay {
+background-color: #23292f;
+height: 100%;
+width: 100%;
+border-radius: 2rem;
+position: absolute;
+top: 0%;
+filter: opacity(0.23);
+} */
 
 /* @media (max-width: 500px) {
   html {

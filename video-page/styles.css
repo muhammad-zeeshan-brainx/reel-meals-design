@@ -5,6 +5,7 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
 *,
@@ -41,7 +42,6 @@ body {
   height: 100%;
 }
 .container {
-  width: 80%;
   height: 100%;
   background-color: #e6ef7a;
   margin: 0 auto;
